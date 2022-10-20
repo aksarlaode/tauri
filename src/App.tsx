@@ -1,35 +1,19 @@
-import { SetStateAction, useCallback, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/tauri";
-import "./App.css";
-import MainEditor from "./components/MainEditor";
-import Editor from "./components/editor";
-import Preview from "./components/preview";
+import { SetStateAction, useCallback, useState } from 'react'
+import './App.scss'
+import MainEditor from './components/MainEditor'
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+  const [doc, setDoc] = useState<string>('')
 
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke("greet", { name }));
-  }
-
-  const [doc, setDoc] = useState<string>("# Hello, World!\n");
-
-  const handleDocChange = useCallback((newDoc: SetStateAction<string>) => {
-    setDoc(newDoc);
-  }, []);
+  const handleDocChange = useCallback(() => {
+    setDoc(doc)
+  }, [])
 
   return (
     <>
-      <MainEditor />{" "}
-      {/*<div className="app">
-        <Editor onChange={handleDocChange} initialDoc={doc} />
-        <Preview doc={doc} />
-  </div>*/}
+      <MainEditor initialDoc={doc} onChange={handleDocChange} />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
