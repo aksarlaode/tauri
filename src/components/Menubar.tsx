@@ -19,7 +19,7 @@ interface IMenubarProp {
 export default function Menubar({ editor }: IMenubarProp) {
   const getFocus = () => editor.chain().focus();
   const isActive = (type: string, options?: any) => {
-    return editor.isActive(type, options ?? {}) ? "is-active" : "";
+    return editor.isActive(type, options ?? {}) ? "text-lime-500" : "";
   };
 
   const menus = [
@@ -86,16 +86,16 @@ export default function Menubar({ editor }: IMenubarProp) {
   ];
 
   return (
-    <div className="menu">
+    <div className="flex flex-col gap-2 px-2 py-0">
       {menus.map((group) => {
         return (
-          <div className="group-item">
+          <div className="flex gap-2">
             {group.map((item) => {
               const Icon = item.icon;
 
               return (
                 <button
-                  className={`menu-item ${item.isActive}`}
+                  className={`p-2 ${item.isActive}`}
                   onClick={item.onClick}
                 >
                   <Icon size={18} stroke={1.5} />{" "}

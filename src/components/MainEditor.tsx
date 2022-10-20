@@ -1,10 +1,16 @@
-import { EditorContent, FloatingMenu, useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Menubar from "./Menubar";
+import { EditorContent, FloatingMenu, useEditor } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
+import Menubar from './Menubar'
 
 export default function MainEditor() {
   const editor = useEditor({
     extensions: [StarterKit],
+    editorProps: {
+      attributes: {
+        class:
+          'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl m-5 focus:outline-none'
+      }
+    },
     content: `<h2>
         Hi there,
       </h2>
@@ -32,17 +38,17 @@ export default function MainEditor() {
         Wow, that’s amazing. Good work, boy! 👏
         <br />
         — Mom
-      </blockquote>`,
-  });
+      </blockquote>`
+  })
   return (
     <>
       {editor && (
         <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
-          <Menubar editor={editor} />{" "}
+          <Menubar editor={editor} />{' '}
         </FloatingMenu>
       )}
       <EditorContent editor={editor} />
     </>
-  );
+  )
 }
-MainEditor;
+MainEditor

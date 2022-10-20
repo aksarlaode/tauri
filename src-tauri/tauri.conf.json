@@ -28,7 +28,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.notebook.dev",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -58,7 +58,7 @@
         "height": 600,
         "resizable": true,
         "title": "tauri-app",
-        "width": 800
+        "width": 600
       }
     ]
   }

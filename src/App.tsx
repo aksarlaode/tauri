@@ -24,10 +24,10 @@ function App() {
   return (
     <>
       <MainEditor />{" "}
-      <div className="app">
+      {/*<div className="app">
         <Editor onChange={handleDocChange} initialDoc={doc} />
         <Preview doc={doc} />
-      </div>
+  </div>*/}
     </>
   );
 }

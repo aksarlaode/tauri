@@ -24,15 +24,17 @@ const Preview: React.FC<Props> = (props) => {
   const md = unified()
     .use(remarkParse)
     .use(remarkGfm)
-    /*.use(remarkReact, {
+    // @ts-ignore
+    .use(remarkReact, {
       createElement: React.createElement,
       sanitize: schema,
       remarkReactComponents: {
         code: RemarkCode,
       },
-    })*/
-    .processSync(props.doc).result;
-  return <div className="preview markdown-body">{md}</div>;
-};
+    })
+    .processSync(props.doc).result
+    // @ts-ignore
+  return <div className="preview markdown-body">{md}</div>
+}
 
 export default Preview;
