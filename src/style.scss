@@ -2,55 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-.prose {
-  .anchor {
-    @apply absolute invisible no-underline;
+.ProseMirror {
+  padding: 1rem;
+  outline: none;
+  padding-top: 2.5rem;
 
-    margin-left: -1em;
-    padding-right: 0.5em;
-    width: 80%;
-    max-width: 700px;
-    cursor: pointer;
-
-    &:after {
-      @apply text-gray-300 dark:text-gray-700;
-      content: '#';
-    }
+  > * + * {
+    margin-top: 0.75em;
   }
 
-  a {
-    @apply transition-all;
-  }
-
-  *:hover > .anchor {
-    @apply visible;
-  }
-
-  .prose pre {
+  pre {
     @apply border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
 
     code {
       @apply text-gray-800 dark:text-gray-200 p-0;
       border: initial;
     }
-  }
 
-  .prose code {
-    @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-lg bg-gray-100 dark:bg-gray-900;
-  }
+    .hljs-comment,
+    .hljs-quote {
+      color: #616161;
+    }
 
-  img {
-    /* Don't apply styles to next/image */
-    @apply m-0;
-  }
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-attribute,
+    .hljs-tag,
+    .hljs-name,
+    .hljs-regexp,
+    .hljs-link,
+    .hljs-name,
+    .hljs-selector-id,
+    .hljs-selector-class {
+      color: #f98181;
+    }
 
-  > :first-child {
-    /* Override removing top margin, causing layout shift */
-    margin-top: 1.25em !important;
-    margin-bottom: 1.25em !important;
-  }
-}
+    .hljs-number,
+    .hljs-meta,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-literal,
+    .hljs-type,
+    .hljs-params {
+      color: #fbbc88;
+    }
 
-.anchor:hover {
-  @apply visible;
+    .hljs-string,
+    .hljs-symbol,
+    .hljs-bullet {
+      color: #b9f18d;
+    }
+
+    .hljs-title,
+    .hljs-section {
+      color: #faf594;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+      color: #70cff8;
+    }
+
+    .hljs-emphasis {
+      @apply italic;
+    }
+
+    .hljs-strong {
+      @apply font-bold;
+    }
+  }
 }

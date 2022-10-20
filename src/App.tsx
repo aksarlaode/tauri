@@ -1,5 +1,4 @@
 import { SetStateAction, useCallback, useState } from 'react'
-import './App.scss'
 import MainEditor from './components/MainEditor'
 
 function App() {

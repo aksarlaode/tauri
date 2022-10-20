@@ -25,9 +25,6 @@ export default function Menubar({ editor }: IMenubarProp) {
     return editor.isActive(type, options ?? {}) ? 'text-lime-500' : ''
   }
 
-  const previousUrl = editor.getAttributes('link').href
-  const url = window.prompt('URL', previousUrl)
-
   const setLink = useCallback(() => {
     const previousUrl = editor.getAttributes('link').href
     const url = window.prompt('URL', previousUrl)
@@ -110,9 +107,7 @@ export default function Menubar({ editor }: IMenubarProp) {
       },
       {
         icon: IconLink,
-        onClick: getFocus()
-          .extendMarkRange('link')
-          .run(),
+        onClick: setLink,
         isActive: isActive('link')
       }
     ]
