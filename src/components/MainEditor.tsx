@@ -22,7 +22,13 @@ interface Props {
 
 export default function MainEditor({ initialDoc, onChange }: Props) {
   const editor = useEditor({
-    extensions: [StarterKit, CodeBlockLowlight.configure({ lowlight }), Link],
+    extensions: [
+      StarterKit,
+      CodeBlockLowlight.configure({ lowlight }),
+      Link.configure({
+        openOnClick: false
+      })
+    ],
     editorProps: {
       attributes: {
         class:
